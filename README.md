@@ -6,8 +6,6 @@ I have a habit of building small games whenever I start learning a new programmi
 
 Like many developers, I enjoy creating mini games purely for the experience and learning process. It’s both a fun exercise and a valuable way to deepen my understanding of programming concepts.
 
----
-
 ## Important Note
 
 All of these games are created during the early stages of learning a language. Because of that:
@@ -17,8 +15,6 @@ All of these games are created during the early stages of learning a language. B
 * Some design decisions may not be optimal
 
 This is intentional. Each flaw is an opportunity to learn and improve. These projects are not meant for production use but rather as stepping stones in the learning journey.
-
----
 
 ## Games Built So Far
 
@@ -31,13 +27,11 @@ This is intentional. Each flaw is an opportunity to learn and improve. These pro
 * [**Snake Game (Go)**](Go/snakeGame/README.md)
   Classic snake game built to explore Go fundamentals
 
----
 
 ## Purpose
 
 This repository is a reflection of my learning process. It documents progress, mistakes, and improvements over time. The focus is on experimentation, exploration, and growth rather than perfection.
 
----
 
 ## Future Plans
 

@@ -2,15 +2,11 @@
 
 ![Gameplay Demo](./media/javaChess.gif)
 
----
-
 ## Overview
 
 A 2-player Chess game built in Java using Swing, created while learning the language through hands-on projects.
 
 This is one of the projects I keep coming back to over time, adding small improvements, fixing issues, and experimenting with ideas. It’s easily the project I’m most proud of in this collection.
-
----
 
 ## Features
 
@@ -20,14 +16,10 @@ This is one of the projects I keep coming back to over time, adding small improv
 * GUI rendering using Java Swing
 * Classic chess piece styling
 
----
-
 ## Controls
 
 * Mouse-based interaction
 * Click to select and move pieces
-
----
 
 ## What This Project Focuses On
 
@@ -37,8 +29,6 @@ This project was mainly about understanding and applying core OOP concepts in Ja
 * **Inheritance** → All pieces extend a base `Piece` class
 * **Polymorphism** → Movement rules differ per piece
 * **Separation of concerns** → UI, logic, and input are split across classes
-
----
 
 ## How It Works
 
@@ -51,8 +41,6 @@ This project was mainly about understanding and applying core OOP concepts in Ja
   * Captures
   * Invalid actions
 
----
-
 ## Limitations
 
 * No checkmate or proper game-end detection
@@ -64,7 +52,6 @@ This project was mainly about understanding and applying core OOP concepts in Ja
 
 This was built early in the learning process, so some core chess rules are simplified or not implemented.
 
----
 
 ## Running the Game
 
@@ -80,15 +67,11 @@ javac main/*.java pieces/*.java
 java main.Main
 ```
 
----
-
 ## Notes
 
 * Built while learning Java and Swing
 * Not production-level code
 * This is a project I revisit occasionally to improve over time
-
----
 
 ## What I Learned
 

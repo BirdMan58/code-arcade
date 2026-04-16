@@ -2,15 +2,11 @@
 
 ![Gameplay Demo](./media/goSnake.gif)
 
----
-
 ## Overview
 
 A simple Snake game built in Go while learning the language.
 
 The goal was to experiment with basic game loops, terminal rendering, and a bit of concurrency using goroutines.
-
----
 
 ## Features
 
@@ -22,8 +18,6 @@ The goal was to experiment with basic game loops, terminal rendering, and a bit 
 * Simple score tracking
 * Colored output using ANSI escape codes
 
----
-
 ## Controls
 
 ```
@@ -31,16 +25,12 @@ Arrow Keys  → Move
 q           → Quit
 ```
 
----
-
 ## How It Works
 
 * A main loop updates and redraws the game continuously
 * A separate goroutine listens for keyboard input
 * The snake moves based on the current direction
 * Eating fruit increases score and length
-
----
 
 ## Running the Game
 
@@ -55,8 +45,6 @@ go get golang.org/x/term
 ```bash id="x8m2p1"
 go run main.go
 ```
-
----
 
 ## Notes
 
