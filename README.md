@@ -27,6 +27,9 @@ This is intentional. Each flaw is an opportunity to learn and improve. These pro
 * [**Snake Game (Go)**](Go/snakeGame/README.md)
   Classic snake game built to explore Go fundamentals
 
+* [**MineSweeper (C)**](C/minesweeper/README.md)
+  Classic minesweeper game built in C to explore raylib library
+
 
 ## Purpose
 

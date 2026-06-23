@@ -36,13 +36,13 @@ q           → Quit
 
 ### Install dependency
 
-```bash id="b3k9s2"
+```
 go get golang.org/x/term
 ```
 
 ### Run
 
-```bash id="x8m2p1"
+```
 go run main.go
 ```
 

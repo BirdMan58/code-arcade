@@ -57,13 +57,13 @@ This was built early in the learning process, so some core chess rules are simpl
 
 ### Compile
 
-```bash id="c9v2b1"
+```bash
 javac main/*.java pieces/*.java
 ```
 
 ### Run
 
-```bash id="k4m8n2"
+```bash
 java main.Main
 ```
 
