@@ -3,8 +3,7 @@
   MineSweeper (C)
 </h1>
 
-![ScreenShot](./ScreenShots/Screenshot_gamePlay.png)
-
+<img src="./ScreenShots/Screenshot_gamePlay.png" alt="Screenshot" width="500">
 
 ## Overview
 
