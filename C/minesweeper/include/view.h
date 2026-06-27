@@ -10,5 +10,6 @@ void drawBoard();
 void drawBoard();
 void drawHover(Vector2 hoverPoints);
 void drawGameOverMessage(const char* message);
-
+void toggleTheme();
+void updateBlockSize();
 #endif

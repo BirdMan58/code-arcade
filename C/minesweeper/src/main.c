@@ -26,9 +26,20 @@ int main() {
     while(!WindowShouldClose()) {
         mousePos = GetMousePosition();
         boardPoints = translateToBoardPoints(mousePos);
-        // TraceLog(LOG_INFO, "row: %f, col: %f", boardPoints.x, boardPoints.y);
 
         if(IsKeyPressed(KEY_N)) {
+            gameStart = 0;
+            replay();
+        }
+        if(IsKeyPressed(KEY_Q)) {
+            break;
+        }
+        if(IsKeyPressed(KEY_T)) {
+            toggleTheme();
+        }
+        if(IsKeyPressed(KEY_L)) {
+            changeLevel();
+            updateBlockSize();
             gameStart = 0;
             replay();
         }
@@ -36,13 +47,13 @@ int main() {
             mousePos =  GetMousePosition();
             boardPoints = translateToBoardPoints(mousePos);
 
-            handleInput(boardPoints.x, boardPoints.y);
+            handleInput(boardPoints.y, boardPoints.x);
         } 
         if(IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) {
             mousePos =  GetMousePosition();
             boardPoints = translateToBoardPoints(mousePos);
 
-            flagIt(boardPoints.x, boardPoints.y);
+            flagIt(boardPoints.y, boardPoints.x);
         }
         
         BeginDrawing();

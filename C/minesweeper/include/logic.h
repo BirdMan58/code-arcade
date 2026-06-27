@@ -12,8 +12,8 @@ typedef enum {
     MISFLAGED
 } State;
 
-extern int board[HEIGHT][WIDTH];
-extern State boardState[HEIGHT][WIDTH];
+extern int board[16][16];
+extern State boardState[16][16];
 extern int gameOver;
 extern int gameStart;
 

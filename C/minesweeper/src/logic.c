@@ -2,27 +2,28 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include <raylib.h>
-
 #include "config.h"
 #include "logic.h"
 
-int board[HEIGHT][WIDTH] = {0};
-State boardState[HEIGHT][WIDTH] = {0};
+#define upperBound(val, max) (val+1 > max-1) ? max-1 : val+1
+#define lowerBound(val, min) (val-1 < min) ? min : val-1
+
+int board[16][16] = {0};
+State boardState[16][16] = {0};
 int gameOver = 0;
 int gameStart = 0;
-int hiddenCells = HEIGHT * WIDTH;
-int flagCount = TOTALBOMBS;
+int hiddenCells = 1;
+int flagCount;
 
 void replay() {
-   for (int i = 0; i < HEIGHT; i++) {
-        for (int j = 0; j < WIDTH; j++) {
+   for (int i = 0; i < gameConfig.row; i++) {
+        for (int j = 0; j < gameConfig.row; j++) {
             boardState[i][j] = HIDDEN;
             board[i][j] = 0;
         }
     } 
-    hiddenCells = HEIGHT * WIDTH;
-    flagCount = TOTALBOMBS;
+    hiddenCells = gameConfig.row * gameConfig.row;
+    flagCount = gameConfig.totalBombs;
     gameOver = 0;
 }
 
@@ -31,23 +32,26 @@ void intilizeBoard(int inputR, int inputC) {
     int lowRow, lowCol;
     int highRow, highCol;
 
-    for(int i = 0; i < TOTALBOMBS; i++) {
+    hiddenCells = gameConfig.row * gameConfig.row;
+    flagCount = gameConfig.totalBombs;
+
+    for(int i = 0; i < gameConfig.totalBombs; i++) {
         do {
-            r = rand() % HEIGHT;
-            c = rand() % WIDTH;
+            r = rand() % gameConfig.row;
+            c = rand() % gameConfig.row;
         } while(board[r][c] == -1 || (inputR == r && inputC == c));
 
         board[r][c] = -1;
     }
 
-    for (int i = 0; i < HEIGHT; i++) {
-        for (int j = 0; j < WIDTH; j++) {
+    for (int i = 0; i < gameConfig.row; i++) {
+        for (int j = 0; j < gameConfig.row; j++) {
             if(board[i][j] == -1) {
-                lowRow = (i-1 < 0) ? 0 : i-1;
-                lowCol = (j-1 < 0) ? 0 : j-1; 
+                lowRow = lowerBound(i, 0);
+                lowCol = lowerBound(j, 0); 
 
-                highRow = (i+1 > 8) ? 8 : i+1;
-                highCol = (j+1 > 8) ? 8 : j+1;
+                highRow = upperBound(i, gameConfig.row);
+                highCol = upperBound(j, gameConfig.row);
 
                 for (int k = lowRow; k <= highRow; k++) {
                     for (int l = lowCol; l <= highCol; l++) {
@@ -79,11 +83,11 @@ static void blankCase(int row, int col) {
     }
     makeVisible(row, col);
 
-    lowRow = (row-1 < 0) ? 0 : row-1;
-    lowCol = (col-1 < 0) ? 0 : col-1; 
+    lowRow = lowerBound(row, 0);
+    lowCol = lowerBound(col, 0); 
 
-    highRow = (row+1 > 8) ? 8 : row+1;
-    highCol = (col+1 > 8) ? 8 : col+1;
+    highRow = upperBound(row, gameConfig.row);
+    highCol = upperBound(col, gameConfig.row);
 
     for (int i = lowRow; i <= highRow; i++) {
         for (int j = lowCol; j <= highCol; j++) {      
@@ -97,11 +101,11 @@ static void blankCase(int row, int col) {
 }
 
 static int showNeighbour(int row, int col) {
-    int lowRow = (row-1 < 0) ? 0 : row-1;
-    int lowCol = (col-1 < 0) ? 0 : col-1; 
+    int lowRow = lowerBound(row, 0);
+    int lowCol = lowerBound(col, 0); 
 
-    int highRow = (row+1 > 8) ? 8 : row+1;
-    int highCol = (col+1 > 8) ? 8 : col+1;
+    int highRow = upperBound(row, gameConfig.row);
+    int highCol = upperBound(col, gameConfig.row);
 
     int placedFlags = 0;
     for (int i = lowRow; i <= highRow; i++) {
@@ -136,10 +140,9 @@ static int showNeighbour(int row, int col) {
 int handleInput(int row, int col) {
     if(!gameStart) {
         intilizeBoard(row, col);
-        TraceLog(LOG_INFO, "Game has begun!");
     }
 
-    if(row < 0 || row > 8 || col < 0 || col > 8) {
+    if(row < 0 || row >= gameConfig.row || col < 0 || col >= gameConfig.row) {
         return 0;
     } 
 
@@ -153,7 +156,6 @@ int handleInput(int row, int col) {
     } else {
         showNeighbour(row, col);
     }
-    // TraceLog(LOG_INFO, "Hidden Cells: %d", hiddenCells);
     return 1;
 }
 

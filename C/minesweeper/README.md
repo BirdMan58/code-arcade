@@ -42,6 +42,25 @@ Alternatively, after building:
 ```
 ./bin/game
 ```
+
+## Gameplay
+
+### Basic Controls
+- **Right-click** on a hidden tile to reveal it.
+- **Left-click** on a hidden tile to cycle through markers:
+  - Flag (`⚑`)
+  - Question mark (`?`)
+  - Empty tile
+- **Left-click** on a revealed tile to reveal adjacent tiles when possible.
+
+### Advanced Controls
+| Key | Action |
+|-----|--------|
+| `N` | Start a new game |
+| `Q` | Quit the game |
+| `T` | Toggle between light mode and dark mode |
+| `L` | Toggle between Easy and Hard modes *(switching difficulty resets all current progress)* |
+
 ## Important Note
 
 Like the other projects in this repository, this game was created as part of a learning experience.
@@ -69,8 +88,9 @@ I would like to continue improving the game by adding:
 
 - [ ] Bomb counter displaying the number of remaining flags
 - [ ] Sound effects and audio feedback
-- [ ] Multiple difficulty levels
+- [x] Multiple difficulty levels
 - [ ] Custom board layouts
+- [x] Light and Dark themes
 
 ## Final Thoughts
 

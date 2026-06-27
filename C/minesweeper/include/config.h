@@ -3,14 +3,9 @@
 
 #include <raylib.h>
 
-#define HEIGHT 9
-#define WIDTH 9
-#define TOTALBOMBS 10
+#define SCREEN_HEIGHT 800
+#define SCREEN_WIDTH 800
 
-#define SCREEN_HEIGHT 770
-#define SCREEN_WIDTH 770
-#define PADDING 5
-#define BLOCK_SIZE ((SCREEN_HEIGHT > SCREEN_WIDTH) ? (SCREEN_HEIGHT / HEIGHT) - PADDING : (SCREEN_WIDTH / HEIGHT) - PADDING)
 #define SPRITE_ROW 5
 #define SPRITE_COL 4
 
@@ -37,4 +32,13 @@
 #define FLAG_HOVER  (Vector2) {4, 1}
 #define CELL_HOVER  (Vector2) {4, 2}
 
+typedef struct {
+    int row;
+    int col;
+    int totalBombs;
+} GameConfig;
+
+extern GameConfig gameConfig;
+
+void changeLevel();
 #endif

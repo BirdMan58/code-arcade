@@ -4,7 +4,7 @@ LIBS = $(shell pkg-config --libs raylib)
 
 TARGET = ./bin/game
 STARGET = ./bin/staticGame
-SRC = ./src/main.c ./src/logic.c ./src/view.c
+SRC = ./src/main.c ./src/logic.c ./src/view.c ./src/config.c
 
 build:
 	$(CC) $(SRC) -o $(TARGET) $(CFLAGS) $(LIBS)
